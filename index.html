@@ -264,6 +264,7 @@ body {
 }
 
 .hero:before { left: 18px; }
+
 .hero:after {
   right: 18px;
   transform: scaleX(-1);
@@ -493,7 +494,6 @@ body {
 
   <div class="intro-card">
     <div class="eyebrow">A celebration of love</div>
-
     <h1 class="intro-title">You are cordially invited</h1>
 
     <div class="intro-sub">TO THE ENGAGEMENT OF</div>
@@ -510,7 +510,6 @@ body {
           </div>
         </div>
       </div>
-
       <div class="door left"><i class="handle"></i></div>
       <div class="door right"><i class="handle"></i></div>
     </div>
@@ -531,7 +530,6 @@ body {
       <div class="mantra">॥ ఓం శ్రీ గణేశాయ నమః ॥</div>
 
       <div class="kicker">Together with our families</div>
-
       <div class="ornament">✦ ❧ ✦</div>
 
       <div class="kicker">Request the pleasure of your company</div>
@@ -596,7 +594,6 @@ body {
   </section>
 
   <section class="section details">
-
     <div class="kicker">Save the date</div>
 
     <h2>Join us for the celebration</h2>
@@ -642,7 +639,7 @@ body {
 
 </main>
 
-<!-- Audio file must be in the same folder as index.html -->
+<!-- Keep RadheShyam.mp3 in the same folder as index.html -->
 <audio id="bgMusic" preload="auto" loop playsinline>
   <source src="./RadheShyam.mp3" type="audio/mpeg">
 </audio>
@@ -656,7 +653,7 @@ const music = document.getElementById("bgMusic");
 let opened = false;
 let musicStarted = false;
 
-// Attempt to play the music.
+// Start background music.
 async function startMusic() {
   if (musicStarted) return;
 
@@ -666,28 +663,26 @@ async function startMusic() {
     await music.play();
     musicStarted = true;
 
-    // Remove fallback listeners once music successfully starts.
     document.removeEventListener("pointerdown", startMusic);
     document.removeEventListener("keydown", startMusic);
   } catch (error) {
     console.info(
-      "Browser blocked automatic music playback. Waiting for visitor interaction."
+      "Autoplay was blocked. Music will start after visitor interaction."
     );
   }
 }
 
-// Open the doors automatically.
+// Open doors automatically.
 function revealInvitation() {
   if (opened) return;
 
   opened = true;
-
   stage.classList.add("opened");
 
-  // Try autoplay as the doors begin opening.
+  // Attempt autoplay as doors begin opening.
   startMusic();
 
-  // Show the invitation after the doors open.
+  // Reveal invitation after the doors open.
   setTimeout(() => {
     intro.style.display = "none";
     invitation.classList.add("show");
@@ -695,31 +690,55 @@ function revealInvitation() {
   }, 2200);
 }
 
-// If autoplay is blocked, start music on the first tap/click
-// or keyboard interaction anywhere on the page.
+// If autoplay is blocked, first tap/click or keyboard
+// interaction anywhere on the page starts the music.
 document.addEventListener("pointerdown", startMusic);
 document.addEventListener("keydown", startMusic);
 
-// Automatically open doors when the page loads.
+// Automatically open doors after page loads.
 window.addEventListener("load", () => {
   setTimeout(revealInvitation, 900);
 }, { once: true });
 
 
-// Countdown to 22 November 2026, 9:00 AM IST.
-const target = new Date("2026-11-22T9:00:00+05:30").getTime();
+// COUNTDOWN
+// 22 November 2026, 9:00 AM Indian Standard Time.
+// IST is UTC + 5 hours 30 minutes.
+// Therefore, 9:00 AM IST = 03:30 AM UTC.
+
+// Month is zero-based in JavaScript:
+// 10 represents November.
+const target = Date.UTC(2026, 10, 22, 3, 30, 0);
 
 const pad = (number) => String(number).padStart(2, "0");
 
 function updateCountdown() {
   const difference = target - Date.now();
 
-  if (difference <= 0) {
-    ["days", "hours", "minutes", "seconds"].forEach((id) => {
-      document.getElementById(id).textContent = "00";
-    });
+  const daysElement = document.getElementById("days");
+  const hoursElement = document.getElementById("hours");
+  const minutesElement = document.getElementById("minutes");
+  const secondsElement = document.getElementById("seconds");
+  const noteElement = document.getElementById("countdownNote");
 
-    document.getElementById("countdownNote").textContent =
+  // Prevent invalid countdown values from displaying.
+  if (!Number.isFinite(difference)) {
+    daysElement.textContent = "00";
+    hoursElement.textContent = "00";
+    minutesElement.textContent = "00";
+    secondsElement.textContent = "00";
+    noteElement.textContent = "Please refresh to view the countdown.";
+    return;
+  }
+
+  // When the engagement date arrives.
+  if (difference <= 0) {
+    daysElement.textContent = "00";
+    hoursElement.textContent = "00";
+    minutesElement.textContent = "00";
+    secondsElement.textContent = "00";
+
+    noteElement.textContent =
       "Today is the special day! Celebrating Banesh & Lavanya.";
 
     return;
@@ -730,15 +749,18 @@ function updateCountdown() {
   const minutes = Math.floor((difference % 3600000) / 60000);
   const seconds = Math.floor((difference % 60000) / 1000);
 
-  document.getElementById("days").textContent = pad(days);
-  document.getElementById("hours").textContent = pad(hours);
-  document.getElementById("minutes").textContent = pad(minutes);
-  document.getElementById("seconds").textContent = pad(seconds);
+  daysElement.textContent = pad(days);
+  hoursElement.textContent = pad(hours);
+  minutesElement.textContent = pad(minutes);
+  secondsElement.textContent = pad(seconds);
 }
 
+// Run immediately, then update every second.
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
 </script>
 
 </body>
 </html>
+
