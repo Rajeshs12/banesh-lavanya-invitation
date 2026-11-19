@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8ec">
+  <title>Banesh &amp; Lavanya | Engagement Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #c49a45;
+      --gold-light: #ead49a;
+      --wine: #7b1824;
+      --wine-dark: #4b0d17;
+      --cream: #fff8ec;
+      --ink: #4a171c;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    /* Opening doors */
+    #intro {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      color: #fff0ce;
+      background: radial-gradient(ellipse at center, #8f2630 0, #65151f 68%, #3c0b13 100%);
+    }
+    .glow {
+      position: absolute;
+      inset: 0;
+      opacity: .34;
+      background: repeating-radial-gradient(ellipse at center, transparent 0 70px, #b8955520 72px 74px);
+    }
+    .intro-card {
+      position: relative;
+      z-index: 2;
+      width: min(760px, 100%);
+      padding: 30px 16px;
+      text-align: center;
+    }
+    .eyebrow, .intro-sub, .kicker, .detail-label, .date-line, .timebox span {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+    }
+    .eyebrow {
+      color: #f1d58e;
+      font-size: 12px;
+      letter-spacing: .24em;
+    }
+    .intro-title {
+      margin: 18px 0 10px;
+      color: #ffe8b0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(38px, 7vw, 64px);
+      font-weight: 600;
+      text-shadow: 0 2px 12px #ffffff55;
+    }
+    .intro-sub {
+      color: #f3dca9;
+      font-size: 11px;
+      letter-spacing: .18em;
+    }
+    .door-stage {
+      position: relative;
+      height: 290px;
+      max-width: 530px;
+      margin: 26px auto 20px;
+      perspective: 1200px;
+      filter: drop-shadow(0 14px 18px #59452b30);
+    }
+    .door-frame {
+      position: absolute;
+      inset: 0;
+      padding: 10px;
+      border: 8px double var(--gold);
+      border-bottom: 0;
+      border-radius: 190px 190px 0 0;
+      background: linear-gradient(90deg, #f2d78c, #9b642d 15%, #f7e5a9 50%, #9b642d 85%, #f2d78c);
+    }
+    .door-inner {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      border: 2px solid #f2dba1;
+      border-radius: 180px 180px 0 0;
+      background: radial-gradient(circle at 50% 40%, #fff5d9, #d8ad64 65%, #8f2930);
+    }
+    .door-inner::before {
+      content: "";
+      position: absolute;
+      inset: 15px;
+      border: 1px solid #fff0c0;
+      border-radius: 160px 160px 0 0;
+      opacity: .65;
+    }
+    .center-reveal {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      color: #5b1a20;
+      text-align: center;
+    }
+    .center-reveal strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(27px, 5vw, 42px);
+      font-weight: 700;
+    }
+    .center-reveal span {
+      font: 10px Arial, sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .door {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 3;
+      width: 50%;
+      border: 3px solid #c7a76c;
+      background: linear-gradient(90deg, #4c1018, #9d3034 18%, #681821 50%, #a8493d 88%, #4c1018);
+      transform-style: preserve-3d;
+      transition: transform 2s cubic-bezier(.2, .75, .15, 1);
+    }
+    .door.left {
+      left: 0;
+      transform-origin: left center;
+      border-right: 2px solid #e8ca82;
+    }
+    .door.right {
+      right: 0;
+      transform-origin: right center;
+      border-left: 2px solid #e8ca82;
+    }
+    .door::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border: 2px solid #c7a76c;
+      outline: 1px solid #3e2118;
+      outline-offset: -7px;
+      border-radius: 150px 150px 8px 8px;
+    }
+    .door::after {
+      content: "✥";
+      position: absolute;
+      top: 44%;
+      left: 50%;
+      color: #f0d89f;
+      font-size: 48px;
+      text-shadow: 0 2px 5px #2b140e;
+      transform: translate(-50%, -50%);
+    }
+    .handle {
+      position: absolute;
+      top: 56%;
+      z-index: 4;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #f5d68b;
+      box-shadow: 0 0 0 4px #704323;
+    }
+    .left .handle { right: 13px; }
+    .right .handle { left: 13px; }
+    .opened .door.left { transform: rotateY(-112deg); }
+    .opened .door.right { transform: rotateY(112deg); }
+    .hint {
+      margin-top: 14px;
+      color: #f3dca9;
+      font: 11px Arial, sans-serif;
+      letter-spacing: .08em;
+    }
+
+    /* Invitation */
+    #invitation {
+      display: none;
+      min-height: 100vh;
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--cream);
+    }
+    #invitation.show {
+      display: block;
+      animation: fade .9s ease;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 76px 20px;
+      text-align: center;
+      background: linear-gradient(#fff8eced, #fff8eced), radial-gradient(circle at top, #efd7a1, #fff8ec 65%);
+    }
+    .hero::before, .hero::after {
+      content: "❧";
+      position: absolute;
+      top: 18px;
+      color: #a51f2c;
+      font-size: 76px;
+      opacity: .38;
+    }
+    .hero::before { left: 18px; }
+    .hero::after { right: 18px; transform: scaleX(-1); }
+
+    .frame {
+      position: relative;
+      width: min(720px, 94vw);
+      padding: clamp(26px, 5vw, 56px);
+      border: 2px solid #b88932;
+      outline: 1px solid #e2c77f;
+      outline-offset: 6px;
+      background: #fffaf0f2;
+      box-shadow: 0 14px 45px #7b182420;
+    }
+    .frame::before, .frame::after {
+      content: "✦";
+      position: absolute;
+      left: 50%;
+      padding: 0 12px;
+      color: #b68c43;
+      background: var(--cream);
+      font-size: 20px;
+      transform: translateX(-50%);
+    }
+    .frame::before { top: -13px; }
+    .frame::after { bottom: -13px; }
+    .ganesha-mark {
+      display: block;
+      width: 62px;
+      height: 66px;
+      margin: 0 auto 5px;
+      object-fit: contain;
+      filter: drop-shadow(0 3px 4px #8a6c3820);
+    }
+    .mantra {
+      margin: 2px auto 16px;
+      color: #941f2a;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: .08em;
+    }
+    .kicker {
+      color: #9b6a25;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: .24em;
+    }
+    .ornament {
+      margin: 14px;
+      color: #b8872f;
+      letter-spacing: .5em;
+    }
+    .names {
+      margin: 18px 0;
+      color: #851522;
+      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 10vw, 96px);
+      font-weight: 700;
+      font-style: normal;
+      line-height: .98;
+      letter-spacing: -.025em;
+      text-shadow: 0 2px 0 #f7e5b7, 0 4px 10px #7b182425;
+    }
+    .amp {
+      color: #b89555;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: .72em;
+      font-weight: 500;
+    }
+    .invite-copy {
+      max-width: 510px;
+      margin: 18px auto;
+      color: #746354;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    .date-line {
+      margin-top: 24px;
+      color: #876c43;
+      font-size: 12px;
+      letter-spacing: .16em;
+    }
+
+    /* Countdown and details */
+    .section {
+      padding: 70px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      margin: 0 0 14px;
+      color: var(--wine);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 600;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 620px;
+      margin: 30px auto;
+    }
+    .timebox {
+      min-width: 105px;
+      padding: 18px 12px;
+      border: 1px solid #c99b45;
+      background: #fff9ed;
+      box-shadow: 0 8px 22px #7b182414;
+    }
+    .timebox b {
+      display: block;
+      color: #851d29;
+      font-size: 35px;
+      font-weight: normal;
+      font-variant-numeric: tabular-nums;
+    }
+    .timebox span {
+      color: #9b6a25;
+      font-size: 10px;
+      letter-spacing: .16em;
+    }
+    .details {
+      background: linear-gradient(135deg, #f4e5c9, #f9f0df);
+    }
+    .detail-card {
+      max-width: 560px;
+      margin: 28px auto 0;
+      padding: 30px 20px;
+      border: 1px solid #c99b45;
+      background: #fffaf0;
+      box-shadow: 0 10px 30px #7b182414;
+    }
+    .detail-card p {
+      margin: 8px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .detail-label {
+      color: #9b6a25;
+      font-size: 10px;
+      letter-spacing: .2em;
+    }
+    .lunch-note {
+      color: #8a1b27;
+      font-style: italic;
+      font-weight: bold;
+      letter-spacing: .04em;
+    }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 22px;
+      border: 1px solid #b8872f;
+      border-radius: 28px;
+      color: #7b1824;
+      background: #fff2d7;
+      font: 12px Arial, sans-serif;
+      letter-spacing: .08em;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .map-link:hover {
+      background: #f3ead5;
+      transform: translateY(-1px);
+    }
+    .footer {
+      padding: 35px;
+      border-top: 3px solid #d4ac58;
+      color: #ffedc2;
+      background: linear-gradient(120deg, #65121d, #8c202b);
+      text-align: center;
+      font-size: 15px;
+    }
+    .footer strong {
+      display: block;
+      margin-top: 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 34px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      .door-stage { height: 260px; }
+      .intro-card { padding: 20px 8px; }
+      .ganesha-mark { width: 58px; height: 62px; }
+      .mantra { font-size: 15px; }
+      .timebox { min-width: 75px; padding: 14px 8px; }
+      .timebox b { font-size: 28px; }
+      .hero::before, .hero::after { font-size: 55px; }
+      .names { font-size: clamp(52px, 15vw, 74px); }
+      .date-line { line-height: 1.8; }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="intro" aria-label="Engagement invitation opening">
+    <div class="glow"></div>
+    <div class="intro-card">
+      <div class="eyebrow">A celebration of love</div>
+      <h1 class="intro-title">You are cordially invited</h1>
+      <div class="intro-sub">TO THE ENGAGEMENT OF</div>
+
+      <div class="door-stage" id="doorStage">
+        <div class="door-frame">
+          <div class="door-inner">
+            <div class="center-reveal">
+              <div>
+                <span>With the blessings of our families</span>
+                <strong>Banesh &amp; Lavanya</strong>
+                <span>beginning forever</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="door left"><i class="handle"></i></div>
+        <div class="door right"><i class="handle"></i></div>
+      </div>
+
+      <div class="hint">A warm welcome awaits…</div>
+    </div>
+  </section>
+
+  <main id="invitation">
+    <section class="hero">
+      <div class="frame">
+        <img class="ganesha-mark" src="./ganesha.png" alt="Lord Ganesha">
+        <div class="mantra">॥ ఓం శ్రీ గణేశాయ నమః ॥</div>
+        <div class="kicker">Together with our families</div>
+        <div class="ornament">✦ ❧ ✦</div>
+        <div class="kicker">Request the pleasure of your company</div>
+
+        <h1 class="names">
+          Banesh <span class="amp">&amp;</span><br>
+          Lavanya
+        </h1>
+
+        <div class="kicker">As we celebrate our engagement</div>
+        <p class="invite-copy">
+          Two hearts, one beautiful promise.<br>
+          With the love and blessings of our families,
+          we invite you to join us as we begin this
+          wonderful new chapter together.
+        </p>
+        <div class="ornament">❦</div>
+        <div class="date-line">Sunday · 22 November 2026 · 9:00 AM</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Auspicious moments await</div>
+      <h2>Our beautiful beginning is near</h2>
+      <div class="ornament">✦ ✧ ✦</div>
+
+      <div class="countdown" aria-live="polite">
+        <div class="timebox"><b id="days">00</b><span>Days</span></div>
+        <div class="timebox"><b id="hours">00</b><span>Hours</span></div>
+        <div class="timebox"><b id="minutes">00</b><span>Minutes</span></div>
+        <div class="timebox"><b id="seconds">00</b><span>Seconds</span></div>
+      </div>
+      <p id="countdownNote" class="invite-copy">
+        A special day, made even more special with you.
+      </p>
+    </section>
+
+    <section class="section details">
+      <div class="kicker">Save the date</div>
+      <h2>Join us for the celebration</h2>
+      <div class="ornament">❧ ✦ ❧</div>
+
+      <div class="detail-card">
+        <div class="detail-label">Engagement ceremony</div>
+        <p><strong>Sunday, 22 November 2026</strong></p>
+        <p>9:00 AM</p>
+        <p class="lunch-note"><strong>Lunch Follows</strong></p>
+        <div class="ornament">✦</div>
+
+        <div class="detail-label">Venue</div>
+        <p><strong>TBB Vedika Function hall, Rampuram</strong></p>
+
+        <a class="map-link"
+           href="https://maps.app.goo.gl/YB8xqNJEbJJYgoer6?g_st=aw"
+           target="_blank" rel="noopener noreferrer">
+          ⌖ &nbsp; GET DIRECTIONS
+        </a>
+        <p>We look forward to celebrating with you!</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      With love and warm regards
+      <strong>Banesh &amp; Lavanya</strong>
+    </footer>
+  </main>
+
+  <!-- Keep RadheShyam.mp3 in the same GitHub repository folder as this index.html.
+       Browsers may block automatic sound until the visitor interacts with the page. -->
+  <audio id="bgMusic" preload="auto" loop playsinline>
+    <source src="./RadheShyam.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const doorStage = document.getElementById("doorStage");
+    const intro = document.getElementById("intro");
+    const invitation = document.getElementById("invitation");
+    const music = document.getElementById("bgMusic");
+
+    let opened = false;
+
+    async function revealInvitation() {
+      if (opened) return;
+      opened = true;
+
+      doorStage.classList.add("opened");
+
+      // Attempt to start the background track as the doors begin opening.
+      // Autoplay with sound is controlled by each visitor's browser settings.
+      music.volume = 0.75;
+      const musicAttempt = music.play();
+      if (musicAttempt && typeof musicAttempt.catch === "function") {
+        musicAttempt.catch((error) => {
+          console.info("The browser did not allow automatic audio playback.", error);
+        });
+      }
+
+      window.setTimeout(() => {
+        intro.style.display = "none";
+        invitation.classList.add("show");
+        window.scrollTo(0, 0);
+      }, 2200);
+    }
+
+    window.addEventListener("load", () => {
+      window.setTimeout(revealInvitation, 700);
+    }, { once: true });
+
+    // Countdown to 22 November 2026, 9:00 AM India Standard Time.
+    const targetTime = new Date("2026-11-22T09:00:00+05:30").getTime();
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const difference = targetTime - Date.now();
+
+      if (difference <= 0) {
+        ["days", "hours", "minutes", "seconds"].forEach((id) => {
+          document.getElementById(id).textContent = "00";
+        });
+        document.getElementById("countdownNote").textContent =
+          "Today is the special day! Celebrating Banesh & Lavanya.";
+        return;
+      }
+
+      const days = Math.floor(difference / 86400000);
+      const hours = Math.floor((difference % 86400000) / 3600000);
+      const minutes = Math.floor((difference % 3600000) / 60000);
+      const seconds = Math.floor((difference % 60000) / 1000);
+
+      document.getElementById("days").textContent = pad(days);
+      document.getElementById("hours").textContent = pad(hours);
+      document.getElementById("minutes").textContent = pad(minutes);
+      document.getElementById("seconds").textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
