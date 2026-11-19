@@ -1,764 +1,503 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#65151f">
-<title>Banesh &amp; Lavanya | Engagement Invitation</title>
+<title>Banesh & Lavanya | Engagement Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --gold: #d6ad55;
-  --gold2: #f5df9b;
-  --ink: #4a171c;
-  --cream: #fff8ec;
-  --wine: #7b1824;
+  --green: #073d32;
+  --deep-green: #032b24;
+  --gold: #c9a45c;
+  --light-gold: #ead7a4;
+  --ivory: #fffaf0;
 }
 
-* { box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  margin: 0;
-  background: #fff6e8;
-  color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  background: var(--deep-green);
+  color: var(--ivory);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
-#intro {
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
-  background: radial-gradient(ellipse at center, #8f2630 0, #65151f 68%, #3c0b13 100%);
-  padding: 24px;
-  color: #fff0ce;
-}
-
-.glow {
-  position: absolute;
-  inset: 0;
-  opacity: .34;
-  background: repeating-radial-gradient(
-    ellipse at center,
-    transparent 0 70px,
-    #b8955520 72px 74px
-  );
-}
-
-.intro-card {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  width: min(760px, 100%);
-  padding: 38px 20px;
-}
-
-.eyebrow {
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: #f1d58e;
-  font: 12px Arial, sans-serif;
-}
-
-.intro-title {
-  font-size: clamp(32px, 7vw, 58px);
-  font-weight: normal;
-  color: #ffe8b0;
-  margin: 18px 0 10px;
-  font-family: Georgia, serif;
-  font-style: italic;
-  letter-spacing: .02em;
-  text-shadow: 0 2px 12px #ffffff80;
-}
-
-.intro-sub {
-  color: #f3dca9;
-  letter-spacing: .12em;
-  font: 12px Arial, sans-serif;
-}
-
-.door-stage {
-  height: 290px;
-  max-width: 530px;
-  margin: 26px auto 20px;
-  position: relative;
-  perspective: 1200px;
-  filter: drop-shadow(0 14px 18px #59452b30);
-}
-
-.door-frame {
-  position: absolute;
-  inset: 0;
-  border: 8px double var(--gold);
-  border-bottom: 0;
-  border-radius: 190px 190px 0 0;
-  padding: 10px;
-  background: linear-gradient(
-    90deg,
-    #f2d78c,
-    #9b642d 15%,
-    #f7e5a9 50%,
-    #9b642d 85%,
-    #f2d78c
-  );
-}
-
-.door-inner {
-  height: 100%;
-  border: 2px solid #f2dba1;
-  border-radius: 180px 180px 0 0;
-  overflow: hidden;
-  position: relative;
-  background: radial-gradient(circle at 50% 40%, #fff5d9, #d8ad64 65%, #8f2930);
-}
-
-.door-inner:before {
-  content: "";
-  position: absolute;
-  inset: 15px;
-  border: 1px solid #fff0c0;
-  border-radius: 160px 160px 0 0;
-  opacity: .65;
-}
-
-.door {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  z-index: 3;
-  transform-style: preserve-3d;
-  transition: transform 2s cubic-bezier(.2,.75,.15,1);
-  background: linear-gradient(
-    90deg,
-    #4c1018,
-    #9d3034 18%,
-    #681821 50%,
-    #a8493d 88%,
-    #4c1018
-  );
-  border: 3px solid #c7a76c;
-}
-
-.door.left {
-  left: 0;
-  transform-origin: left center;
-  border-right: 2px solid #e8ca82;
-}
-
-.door.right {
-  right: 0;
-  transform-origin: right center;
-  border-left: 2px solid #e8ca82;
-}
-
-.door:before {
-  content: "";
-  position: absolute;
-  inset: 13px;
-  border: 2px solid #c7a76c;
-  outline: 1px solid #3e2118;
-  outline-offset: -7px;
-  border-radius: 150px 150px 8px 8px;
-}
-
-.door:after {
-  content: "✥";
-  position: absolute;
-  left: 50%;
-  top: 44%;
-  transform: translate(-50%,-50%);
-  font-size: 48px;
-  color: #f0d89f;
-  text-shadow: 0 2px 5px #2b140e;
-}
-
-.handle {
-  position: absolute;
-  top: 56%;
-  width: 11px;
-  height: 11px;
+.music-button {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--gold);
   border-radius: 50%;
-  background: #f5d68b;
-  box-shadow: 0 0 0 4px #704323;
-  z-index: 4;
-}
-
-.left .handle { right: 13px; }
-.right .handle { left: 13px; }
-
-.center-reveal {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  color: #5b1a20;
-  padding: 20px;
-}
-
-.center-reveal strong {
-  display: block;
-  font-size: clamp(22px, 4vw, 34px);
-  font-weight: normal;
-}
-
-.center-reveal span {
-  font: 10px Arial, sans-serif;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-.opened .door.left { transform: rotateY(-112deg); }
-.opened .door.right { transform: rotateY(112deg); }
-
-.hint {
-  font: 11px Arial, sans-serif;
-  color: #f3dca9;
-  margin-top: 14px;
-  letter-spacing: .08em;
-}
-
-#invitation {
-  display: none;
-  background: #fff8ec;
-  color: var(--ink);
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-#invitation.show {
-  display: block;
-  animation: fade .9s ease;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: none; }
+  background: rgba(3,43,36,.9);
+  color: var(--light-gold);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(201,164,92,.25);
 }
 
 .hero {
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 65px 18px;
+  background:
+    radial-gradient(ellipse at center, rgba(18,83,65,.9), transparent 75%),
+    linear-gradient(135deg, #032b24, #0b493a, #032b24);
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(201,164,92,.65);
+  pointer-events: none;
+}
+
+.invitation {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  padding: 45px 25px;
   text-align: center;
-  padding: 76px 20px;
-  position: relative;
-  background: linear-gradient(#fff8eced,#fff8eced),
-              radial-gradient(circle at top,#efd7a1,#fff8ec 65%);
+  background: var(--ivory);
+  color: var(--green);
+  border: 3px double var(--gold);
+  outline: 1px solid rgba(201,164,92,.5);
+  outline-offset: 8px;
+  box-shadow: 0 20px 70px rgba(0,0,0,.35);
+  animation: appear 1.5s ease both;
 }
 
-.hero:before,
-.hero:after {
-  content: "❧";
-  position: absolute;
-  color: #a51f2c;
-  font-size: 76px;
-  opacity: .38;
-  top: 18px;
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hero:before { left: 18px; }
-
-.hero:after {
-  right: 18px;
-  transform: scaleX(-1);
-}
-
-.frame {
-  border: 2px solid #b88932;
-  outline: 1px solid #e2c77f;
-  outline-offset: 6px;
-  padding: clamp(26px,5vw,56px);
-  width: min(720px,94vw);
-  position: relative;
-  background: #fffaf0f2;
-  box-shadow: 0 14px 45px #7b182420;
-}
-
-.frame:before,
-.frame:after {
-  content: "✦";
-  position: absolute;
-  color: #b68c43;
-  background: var(--cream);
-  padding: 0 12px;
-  font-size: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.frame:before { top: -13px; }
-.frame:after { bottom: -13px; }
-
-.ganesha-mark {
-  display: block;
-  width: 70px;
-  height: 74px;
+.ganesha {
+  width: 65px;
+  height: 65px;
   object-fit: contain;
-  margin: 0 auto 5px;
-  filter: drop-shadow(0 3px 4px #8a6c3820);
+  margin-bottom: 8px;
 }
 
 .mantra {
-  font-size: 17px;
-  letter-spacing: .12em;
-  color: #941f2a;
-  font-weight: bold;
-  margin: 2px auto 16px;
+  color: #98713b;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  margin-bottom: 24px;
 }
 
-.kicker {
-  font: bold 11px Arial, sans-serif;
-  letter-spacing: .24em;
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: #9b6a25;
+  color: #98713b;
+  margin-bottom: 14px;
 }
 
-.names {
-  font-size: clamp(42px,8vw,76px);
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(37px, 8vw, 64px);
+  line-height: 1.15;
+  color: var(--green);
+}
+
+.ampersand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 37px;
+  font-style: italic;
+  color: var(--gold);
+  margin: 5px 0;
+}
+
+.gold-line {
+  width: 100px;
+  height: 1px;
+  background: var(--gold);
+  margin: 22px auto;
+}
+
+.intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  color: #6f5b3b;
+  line-height: 1.5;
+}
+
+.event-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: var(--green);
+  margin-top: 22px;
+}
+
+.date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
   font-weight: 600;
-  line-height: 1.05;
-  margin: 18px 0;
-  color: #7b1824;
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: .015em;
-  text-shadow: 0 2px 0 #f1dfb8;
+  color: #98713b;
+  margin-top: 14px;
 }
 
-.amp {
-  font-style: italic;
-  color: #b89555;
-  font-size: .7em;
+.time {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  color: #66543b;
 }
 
-.invite-copy {
-  font-size: 17px;
-  line-height: 1.8;
-  max-width: 510px;
-  margin: 18px auto;
-  color: #746354;
+.countdown-section {
+  margin: 30px 0 25px;
 }
 
-.date-line {
-  font: 12px Arial, sans-serif;
-  letter-spacing: .16em;
-  color: #876c43;
-  text-transform: uppercase;
-  margin-top: 24px;
-}
-
-.section {
-  padding: 70px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: clamp(28px,5vw,42px);
-  font-weight: normal;
-  color: #7b1824;
-  margin: 0 0 14px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-}
-
-.ornament {
-  color: #b8872f;
-  letter-spacing: .5em;
-  margin: 14px;
+.countdown-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: #98713b;
+  margin-bottom: 15px;
 }
 
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 30px auto;
-  max-width: 620px;
+  gap: 10px;
 }
 
-.timebox {
-  background: #fff9ed;
-  border: 1px solid #c99b45;
-  min-width: 105px;
-  padding: 18px 12px;
-  box-shadow: 0 8px 22px #7b182414;
+.count-box {
+  background: var(--green);
+  color: var(--ivory);
+  min-width: 67px;
+  padding: 12px 7px;
+  border: 1px solid var(--gold);
 }
 
-.timebox b {
+.count-box strong {
   display: block;
-  font-size: 35px;
-  font-weight: normal;
-  color: #851d29;
-  font-variant-numeric: tabular-nums;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 500;
 }
 
-.timebox span {
-  font: 10px Arial, sans-serif;
-  letter-spacing: .16em;
+.count-box span {
+  font-size: 9px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: #9b6a25;
+  color: var(--light-gold);
 }
 
-.details {
-  background: linear-gradient(135deg,#f4e5c9,#f9f0df);
-}
-
-.detail-card {
-  max-width: 560px;
-  margin: 28px auto 0;
-  border: 1px solid #c99b45;
-  padding: 30px 20px;
-  background: #fffaf0;
-  box-shadow: 0 10px 30px #7b182414;
-}
-
-.detail-card p {
-  font-size: 18px;
-  line-height: 1.8;
-  margin: 8px;
-}
-
-.detail-label {
-  font: 10px Arial, sans-serif;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: #9b6a25;
-}
-
-.lunch-note {
-  color: #8a1b27;
-  font-style: italic;
-  font-weight: bold;
-  letter-spacing: .04em;
-}
-
-.map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.venue-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
   margin-top: 20px;
-  padding: 12px 22px;
-  border: 1px solid #b8872f;
-  border-radius: 28px;
-  background: #fff2d7;
-  color: #7b1824;
-  text-decoration: none;
-  font: 12px Arial, sans-serif;
-  letter-spacing: .08em;
-  transition: background .2s, transform .2s;
 }
 
-.map-link:hover {
-  background: #f3ead5;
-  transform: translateY(-1px);
+.venue {
+  font-size: 14px;
+  color: #66543b;
+  margin-top: 8px;
+  line-height: 1.8;
+}
+
+.lunch {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #98713b;
+  margin-top: 8px;
+}
+
+.map-button {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 12px 28px;
+  background: var(--green);
+  color: var(--ivory);
+  border: 1px solid var(--gold);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.map-button:hover {
+  background: #145b49;
+  transform: translateY(-2px);
 }
 
 .footer {
-  padding: 35px;
-  text-align: center;
-  background: linear-gradient(120deg,#65121d,#8c202b);
-  border-top: 3px solid #d4ac58;
-  color: #ffedc2;
-  font-size: 15px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  color: #98713b;
+  margin-top: 27px;
 }
 
 .footer strong {
   display: block;
-  font-size: 27px;
-  font-weight: normal;
-  margin-top: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  color: var(--green);
+  margin-top: 5px;
+}
+
+/* Opening doors */
+
+.door-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  pointer-events: none;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.35), transparent 30%, rgba(0,0,0,.15)),
+    repeating-linear-gradient(90deg, #06372e 0px, #0a493b 35px, #06372e 70px);
+  border: 4px solid var(--gold);
+  transition: transform 2.2s cubic-bezier(.77,0,.18,1);
+  position: relative;
+}
+
+.door::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  color: var(--gold);
+  font-size: 38px;
+}
+
+.left-door::after { right: 20px; }
+.right-door::after { left: 20px; }
+
+.door-screen.open .left-door {
+  transform: translateX(-100%);
+}
+
+.door-screen.open .right-door {
+  transform: translateX(100%);
 }
 
 @media(max-width:480px) {
-  .ganesha-mark { width: 68px; height: 72px; }
-  .mantra { font-size: 15px; }
-  .door-stage { height: 260px; }
-  .intro-card { padding: 20px 8px; }
-  .timebox { min-width: 75px; padding: 14px 8px; }
-  .timebox b { font-size: 28px; }
-  .hero:before,.hero:after { font-size: 55px; }
+  .invitation {
+    padding: 35px 15px;
+  }
+
+  .countdown {
+    gap: 5px;
+  }
+
+  .count-box {
+    min-width: 58px;
+    padding: 10px 4px;
+  }
+
+  .count-box strong {
+    font-size: 21px;
+  }
+
+  .count-box span {
+    font-size: 8px;
+  }
+
+  .mantra {
+    font-size: 19px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<section id="intro">
-  <div class="glow"></div>
+<button class="music-button" id="musicButton"
+        aria-label="Toggle background music" title="Music on/off">♫</button>
 
-  <div class="intro-card">
-    <div class="eyebrow">A celebration of love</div>
-    <h1 class="intro-title">You are cordially invited</h1>
-
-    <div class="intro-sub">TO THE ENGAGEMENT OF</div>
-
-    <div class="door-stage" id="doorStage">
-      <div class="door-frame">
-        <div class="door-inner">
-          <div class="center-reveal">
-            <div>
-              <span>With the blessings of our families</span>
-              <strong>Banesh &amp; Lavanya</strong>
-              <span>beginning forever</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="door left"><i class="handle"></i></div>
-      <div class="door right"><i class="handle"></i></div>
-    </div>
-
-    <div class="hint">A warm welcome awaits…</div>
-  </div>
-</section>
-
-<main id="invitation">
-
-  <section class="hero">
-    <div class="frame">
-
-      <img class="ganesha-mark"
-           src="./ganesha.png"
-           alt="Lord Ganesha">
-
-      <div class="mantra">॥ ఓం శ్రీ గణేశాయ నమః ॥</div>
-
-      <div class="kicker">Together with our families</div>
-      <div class="ornament">✦ ❧ ✦</div>
-
-      <div class="kicker">Request the pleasure of your company</div>
-
-      <h1 class="names">
-        Banesh <span class="amp">&amp;</span><br>
-        Lavanya
-      </h1>
-
-      <div class="kicker">As we celebrate our engagement</div>
-
-      <p class="invite-copy">
-        Two hearts, one beautiful promise.
-        With the love and blessings of our families,
-        we invite you to join us as we begin this
-        wonderful new chapter together.
-      </p>
-
-      <div class="ornament">❦</div>
-
-      <div class="date-line">
-        Sunday · 22 November 2026 · 9:00 AM
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-
-    <div class="kicker">Auspicious moments await</div>
-
-    <h2>Our beautiful beginning is near</h2>
-
-    <div class="ornament">✦ ✧ ✦</div>
-
-    <div class="countdown" aria-live="polite">
-      <div class="timebox">
-        <b id="days">00</b>
-        <span>Days</span>
-      </div>
-
-      <div class="timebox">
-        <b id="hours">00</b>
-        <span>Hours</span>
-      </div>
-
-      <div class="timebox">
-        <b id="minutes">00</b>
-        <span>Minutes</span>
-      </div>
-
-      <div class="timebox">
-        <b id="seconds">00</b>
-        <span>Seconds</span>
-      </div>
-    </div>
-
-    <p id="countdownNote" class="invite-copy">
-      A special day, made even more special with you.
-    </p>
-
-  </section>
-
-  <section class="section details">
-    <div class="kicker">Save the date</div>
-
-    <h2>Join us for the celebration</h2>
-
-    <div class="ornament">❧ ✦ ❧</div>
-
-    <div class="detail-card">
-
-      <div class="detail-label">Engagement ceremony</div>
-
-      <p><strong>Sunday, 22 November 2026</strong></p>
-
-      <p>9:00 AM</p>
-
-      <p class="lunch-note">
-        <strong>Lunch Follows</strong>
-      </p>
-
-      <div class="ornament">✦</div>
-
-      <div class="detail-label">Venue</div>
-
-      <p>
-        <strong>TBB Vedika Function hall, Rampuram</strong>
-      </p>
-
-      <a class="map-link"
-         href="https://maps.app.goo.gl/YB8xqNJEbJJYgoer6?g_st=aw"
-         target="_blank"
-         rel="noopener noreferrer">
-        ⌖ &nbsp; GET DIRECTIONS
-      </a>
-
-      <p>We look forward to celebrating with you!</p>
-
-    </div>
-  </section>
-
-  <footer class="footer">
-    With love and warm regards
-    <strong>Banesh &amp; Lavanya</strong>
-  </footer>
-
-</main>
-
-<!-- Keep RadheShyam.mp3 in the same folder as index.html -->
-<audio id="bgMusic" preload="auto" loop playsinline>
-  <source src="./RadheShyam.mp3" type="audio/mpeg">
+<audio id="backgroundMusic" loop preload="auto">
+  <source src="RadheShyam.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-const stage = document.getElementById("doorStage");
-const intro = document.getElementById("intro");
-const invitation = document.getElementById("invitation");
-const music = document.getElementById("bgMusic");
+<div class="door-screen" id="doorScreen">
+  <div class="door left-door"></div>
+  <div class="door right-door"></div>
+</div>
 
-let opened = false;
+<section class="hero">
+  <main class="invitation">
+
+    <img src="ganesha.png" alt="Lord Ganesha" class="ganesha">
+
+    <div class="mantra">॥ ఓం శ్రీ గణేశాయ నమః ॥</div>
+
+    <div class="eyebrow">Together with our families</div>
+
+    <p class="intro">Request the pleasure of your presence<br>at the engagement ceremony of</p>
+
+    <div class="gold-line"></div>
+
+    <h1>Banesh</h1>
+    <div class="ampersand">&</div>
+    <h1>Lavanya</h1>
+
+    <div class="gold-line"></div>
+
+    <div class="event-title">Engagement Ceremony</div>
+
+    <div class="date">Sunday, 22 November 2026</div>
+    <div class="time">AT 9:00 AM</div>
+
+    <div class="countdown-section">
+      <div class="countdown-heading">A beautiful beginning awaits</div>
+
+      <div class="countdown">
+        <div class="count-box">
+          <strong id="days">00</strong>
+          <span>Days</span>
+        </div>
+        <div class="count-box">
+          <strong id="hours">00</strong>
+          <span>Hours</span>
+        </div>
+        <div class="count-box">
+          <strong id="minutes">00</strong>
+          <span>Minutes</span>
+        </div>
+        <div class="count-box">
+          <strong id="seconds">00</strong>
+          <span>Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gold-line"></div>
+
+    <div class="venue-title">The Venue</div>
+    <div class="venue">
+      TBB Vedika Function hall,<br>
+      Rampuram
+    </div>
+
+    <div class="lunch">Lunch Follows</div>
+
+    <a class="map-button"
+       href="https://maps.app.goo.gl/YB8xqNJEbJJYgoer6?g_st=aw"
+       target="_blank" rel="noopener">
+      GET DIRECTIONS
+    </a>
+
+    <div class="footer">
+      With love and warm regards
+      <strong>Banesh & Lavanya</strong>
+    </div>
+
+  </main>
+</section>
+
+<script>
+/* Countdown: 22 November 2026, 9:00 AM Indian Standard Time */
+const eventDate = new Date("2026-11-22T09:00:00+05:30").getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  const distance = eventDate - now;
+
+  if (distance <= 0) {
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* Music */
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
 let musicStarted = false;
 
-// Start background music.
 async function startMusic() {
   if (musicStarted) return;
-
-  music.volume = 0.75;
 
   try {
     await music.play();
     musicStarted = true;
-
-    document.removeEventListener("pointerdown", startMusic);
-    document.removeEventListener("keydown", startMusic);
+    musicButton.textContent = "♫";
   } catch (error) {
-    console.info(
-      "Autoplay was blocked. Music will start after visitor interaction."
-    );
+    // Browser autoplay restrictions may require a visitor interaction.
   }
 }
 
-// Open doors automatically.
-function revealInvitation() {
-  if (opened) return;
+musicButton.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicStarted = true;
+      musicButton.textContent = "♫";
+    } catch (error) {
+      musicButton.textContent = "×";
+    }
+  } else {
+    music.pause();
+    musicButton.textContent = "×";
+  }
+});
 
-  opened = true;
-  stage.classList.add("opened");
-
-  // Attempt autoplay as doors begin opening.
-  startMusic();
-
-  // Reveal invitation after the doors open.
-  setTimeout(() => {
-    intro.style.display = "none";
-    invitation.classList.add("show");
-    window.scrollTo(0, 0);
-  }, 2200);
-}
-
-// If autoplay is blocked, first tap/click or keyboard
-// interaction anywhere on the page starts the music.
-document.addEventListener("pointerdown", startMusic);
-document.addEventListener("keydown", startMusic);
-
-// Automatically open doors after page loads.
+/* Automatically open doors and attempt music playback */
 window.addEventListener("load", () => {
-  setTimeout(revealInvitation, 900);
-}, { once: true });
+  setTimeout(() => {
+    document.getElementById("doorScreen").classList.add("open");
+    startMusic();
+  }, 500);
 
+  // If autoplay is blocked, start music on the visitor's first interaction.
+  const firstInteraction = async () => {
+    if (!musicStarted && music.paused) {
+      await startMusic();
+    }
+    if (musicStarted) {
+      document.removeEventListener("pointerdown", firstInteraction);
+      document.removeEventListener("keydown", firstInteraction);
+    }
+  };
 
-// COUNTDOWN
-// 22 November 2026, 9:00 AM Indian Standard Time.
-// IST is UTC + 5 hours 30 minutes.
-// Therefore, 9:00 AM IST = 03:30 AM UTC.
-
-// Month is zero-based in JavaScript:
-// 10 represents November.
-const target = Date.UTC(2026, 10, 22, 3, 30, 0);
-
-const pad = (number) => String(number).padStart(2, "0");
-
-function updateCountdown() {
-  const difference = target - Date.now();
-
-  const daysElement = document.getElementById("days");
-  const hoursElement = document.getElementById("hours");
-  const minutesElement = document.getElementById("minutes");
-  const secondsElement = document.getElementById("seconds");
-  const noteElement = document.getElementById("countdownNote");
-
-  // Prevent invalid countdown values from displaying.
-  if (!Number.isFinite(difference)) {
-    daysElement.textContent = "00";
-    hoursElement.textContent = "00";
-    minutesElement.textContent = "00";
-    secondsElement.textContent = "00";
-    noteElement.textContent = "Please refresh to view the countdown.";
-    return;
-  }
-
-  // When the engagement date arrives.
-  if (difference <= 0) {
-    daysElement.textContent = "00";
-    hoursElement.textContent = "00";
-    minutesElement.textContent = "00";
-    secondsElement.textContent = "00";
-
-    noteElement.textContent =
-      "Today is the special day! Celebrating Banesh & Lavanya.";
-
-    return;
-  }
-
-  const days = Math.floor(difference / 86400000);
-  const hours = Math.floor((difference % 86400000) / 3600000);
-  const minutes = Math.floor((difference % 3600000) / 60000);
-  const seconds = Math.floor((difference % 60000) / 1000);
-
-  daysElement.textContent = pad(days);
-  hoursElement.textContent = pad(hours);
-  minutesElement.textContent = pad(minutes);
-  secondsElement.textContent = pad(seconds);
-}
-
-// Run immediately, then update every second.
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
+  document.addEventListener("pointerdown", firstInteraction);
+  document.addEventListener("keydown", firstInteraction);
+});
 </script>
 
 </body>
