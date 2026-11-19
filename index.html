@@ -83,6 +83,24 @@ button{font:inherit}
 .footer{background:linear-gradient(120deg,#65121d,#8c202b);border-top:3px solid #d4ac58;color:#ffedc2}
 .lunch-note{color:#8a1b27;font-style:italic;font-weight:bold;letter-spacing:.04em}
 @media(max-width:480px){.mantra{font-size:15px}}
+  .names {
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: clamp(52px, 9vw, 88px);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.05;
+    color: #801824 !important;
+    letter-spacing: -0.025em;
+    text-shadow: none;
+}
+
+.amp {
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 0.72em;
+    font-weight: 400;
+    font-style: normal;
+    color: #b89555 !important;
+}
 
 </style>
 </head>
@@ -149,8 +167,8 @@ button{font:inherit}
   </section>
   <footer class="footer">With love and warm regards<strong>Banesh &amp; Lavanya</strong></footer>
 </main>
-<audio id="bgMusic" autoplay preload="auto" loop>
-  <source src="https://github.com/sagalanaveen987/InvitationFriends/raw/refs/heads/main/RadheShyam.mp3" type="audio/mpeg">
+<audio id="bgMusic" autoplay loop preload="auto" playsinline>
+    <source src="./RadheShyam.mp3" type="audio/mpeg">
 </audio>
 <script>
 const openBtn=document.getElementById('openBtn');
@@ -159,19 +177,18 @@ const intro=document.getElementById('intro');
 const invitation=document.getElementById('invitation');
 const music=document.getElementById('bgMusic');
 let opened=false;
-async function revealInvitation(){
-  if(opened)return;
-  opened=true;
-  stage.classList.add('opened');
-  // Automatically attempt background music as the doors begin opening.
-  // Browsers may block audible autoplay until the visitor interacts with the page.
-  try { await music.play(); }
-  catch(error) { console.info('The browser blocked automatic audio playback.', error); }
-  setTimeout(()=>{
-    intro.style.display='none';
-    invitation.classList.add('show');
-    window.scrollTo(0,0);
-  },2200);
+const music = document.getElementById("bgMusic");
+function revealInvitation() {
+    document.getElementById("doorStage").classList.add("opened");
+
+    music.play().catch(error => {
+        console.log("Browser blocked automatic audio playback:", error);
+    });
+
+    setTimeout(() => {
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("invitation").classList.add("show");
+    }, 2200);
 }
 if(openBtn) openBtn.addEventListener('click',revealInvitation);
 window.addEventListener('load',()=>setTimeout(revealInvitation,900),{once:true});
